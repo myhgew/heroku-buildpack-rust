@@ -166,6 +166,8 @@ fi
 
 # Install diesel so we can use it for migrations
 if [ $RUST_INSTALL_DIESEL -eq 1 ]; then
+  sudo apt install -y libdbus-1-dev libsqlite3-dev
+
   echo "-----> Installing diesel"
   cargo install diesel_cli $DIESEL_FLAGS || echo "already installed"
   cp $(which diesel) $CARGO_TARGET_DIR/release/
